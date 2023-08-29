@@ -2,16 +2,25 @@ version: '3'
 
 services:
   # Database Service
-  db:
-    image: mysql:5.7
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8080
     volumes:
-      - db_data:/var/lib/mysql
+      - .:/code
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
     environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
 
+volumes:
+  postgres_data:
+  
   # Django WebApp
   webapp:
     depends_on:
