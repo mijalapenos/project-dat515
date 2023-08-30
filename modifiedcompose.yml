@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  joomla:
+    image: joomla:latest
+    # restart: always
+    links:
+      - db:mysql
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: example
+      WORDPRESS_DB_PASSWORD: example
+      WORDPRESS_DB_NAME: example
+
+  db:
+    image: mysql:5.7
+    platform: linux/x86_64
+    # restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: example
+      MYSQL_USER: example
+      MYSQL_PASSWORD: example
+
+volumes:
+    db_data: {}
+    joomla_data: {}
