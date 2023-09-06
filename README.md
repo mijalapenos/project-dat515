@@ -43,3 +43,10 @@ TODO: Explain the links option in Docker. Do we really need it?
 The Joomla installation was deployed on `localhost:8080`.
 
 To run locally, we had to specify `platform: linux/x86_64` in the MySQL service because of our computers running on the Apple Silicon chips.
+
+# Assignment 2
+
+## Part 3
+During part 3 we had trouble with accessing the wordpress webpage. It turns out we used service file with the deployment config and vice versa. After fixing this everything worked fine.
+
+## Part 4
