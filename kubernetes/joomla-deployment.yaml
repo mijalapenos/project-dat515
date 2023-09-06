@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: joomla
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: joomla
+  template:
+    metadata:
+      labels:
+        app: joomla
+    spec:
+      containers:
+      - name: joomla
+        image: joomla:latest
+        env:
+        - name: JOOMLA_DB_HOST
+          value: "joomladb:3306"
+        - name: JOOMLA_DB_USER
+          value: "db_user"
+        - name: JOOMLA_DB_PASSWORD
+          value: "db_pass"
+        - name: JOOMLA_DB_NAME
+          value: "db_database"
+        ports:
+        - containerPort: 80
