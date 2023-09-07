@@ -50,3 +50,26 @@ To run locally, we had to specify `platform: linux/x86_64` in the MySQL service 
 During part 3 we had trouble with accessing the wordpress webpage. It turns out we used service file with the deployment config and vice versa. After fixing this everything worked fine.
 
 ## Part 4
+
+Not working at first
+Looked at logs using `kubectl logs deploy/joomla` and `kubectl logs deploy/mysql`
+
+we used wrong name for the database deployment (`joomladb` instead of `mysql`)
+we used wrong password for the joomla
+```
+- name: JOOMLA_DB_USER
+  value: "db_user"
+- name: JOOMLA_DB_PASSWORD
+  value: "db_pass"
+```
+
+changed to
+```
+- name: JOOMLA_DB_USER
+  value: "root"
+- name: JOOMLA_DB_PASSWORD
+  value: "password"
+```
+
+TODO: what command did I use to check the deployment logs?
+TODO: should we use nodeport in order for the port not to change?
