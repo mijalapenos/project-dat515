@@ -71,5 +71,4 @@ changed to
   value: "password"
 ```
 
-TODO: what command did I use to check the deployment logs?
 TODO: should we use nodeport in order for the port not to change?
