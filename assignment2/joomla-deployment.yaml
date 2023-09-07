@@ -17,11 +17,11 @@ spec:
         image: joomla:latest
         env:
         - name: JOOMLA_DB_HOST
-          value: "joomladb:3306"
+          value: "mysql:3306"
         - name: JOOMLA_DB_USER
-          value: "db_user"
+          value: "root"
         - name: JOOMLA_DB_PASSWORD
-          value: "db_pass"
+          value: "password"
         - name: JOOMLA_DB_NAME
           value: "db_database"
         ports:
