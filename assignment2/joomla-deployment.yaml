@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: joomla
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: joomla
@@ -26,3 +26,9 @@ spec:
           value: "db_database"
         ports:
         - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 10

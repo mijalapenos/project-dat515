@@ -72,3 +72,10 @@ changed to
 ```
 
 TODO: should we use nodeport in order for the port not to change?
+
+
+we did a readiness probe in the end
+however we had to change it to liveliness which ensures the pod is restarted if it fails the probe
+
+
+we had type:NodePort for mysql as well, that was unnecessary because that exposed the database outside of the kubernetes server. After removing the NodePort type it stayed accessible inside but was not visible outside.
