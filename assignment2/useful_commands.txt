@@ -1,3 +1,4 @@
 kubectl logs deploy/joomla  # show logs (including probes info)
 kubectl get pod -o wide  # get ip of pods
 kubectl get all  # prints all pods, deployments and other stuff
+kubectl describe pod mysql-6b44544b5-7zcrn  # see what's up with the pod

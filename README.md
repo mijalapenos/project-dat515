@@ -79,3 +79,24 @@ however we had to change it to liveliness which ensures the pod is restarted if 
 
 
 we had type:NodePort for mysql as well, that was unnecessary because that exposed the database outside of the kubernetes server. After removing the NodePort type it stayed accessible inside but was not visible outside.
+
+
+
+# Assignment 3 (michal)
+
+for some reason things were not working without a problem, mysql was stuck in pending
+
+User `kubectl describe pod mysql-6b44544b5-7zcrn` to see what's up
+
+Got `persistentvolumeclaim "mysql-pvc" not found` error
+
+had to run the steps 1 and 2 from A2/Part 3
+
+Then got error `1 node(s) had untolerated taint {node.kubernetes.io/disk-pressure: }`
+
+```
+ubuntu@ip-172-31-57-220:~$ kubectl taint nodes --all  node-role.kubernetes.io/control-plane-
+node/ip-172-31-57-220 untainted
+```
+
+

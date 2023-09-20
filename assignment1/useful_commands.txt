@@ -1,1 +1,2 @@
 docker compose logs  # show logs
+docker ps -a  # show all containers
