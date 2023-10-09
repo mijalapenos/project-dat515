@@ -100,11 +100,3 @@ node/ip-172-31-57-220 untainted
 ```
 
 
-# Advanced feature
-
-## rancher.io pvc
-Creating a persistent volume in Rancher will not create a storage volume. It only creates a Kubernetes resource that maps to an existing volume. Therefore, before you can create a persistent volume as a Kubernetes resource, you must have storage provisioned.
-(https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/manage-clusters/create-kubernetes-persistent-storage/manage-persistent-storage/about-persistent-storage#:~:text=Creating%20a%20persistent%20volume%20in,you%20must%20have%20storage%20provisioned.)
-
-we don't need ReadWriteMany access monde because replicas are in the same node and this refers to the nodes
-
